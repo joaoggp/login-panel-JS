@@ -52,7 +52,12 @@ function checkPass(passLeng) {
     return passLeng > 8
 }
 
-let validar = () => {
+let redirectValid = () =>{
+    window.location.replace("https://google.com");
+}
+
+
+function validar() {
 
     //Verifica se o usuário e senha são válidos
     for (let counter = 0; counter < user.length; counter++) {
@@ -65,6 +70,7 @@ let validar = () => {
             if (coletaPass.value == pass[counter]) {
                 toastr.option = Object.assign({}, toastSucess)
                 toastr["success"](`Logado no Sistema com o usuário: ${coletaUser.value}`)
+                redirectValid()
                 return
             }
             else {
@@ -89,7 +95,8 @@ let cadastro = () => {
     else {
         for (let x = 0; x < user.length; x++) {
             if (coletaUser.value == user[x]) {
-                alert('Usuário já cadastrado!')
+                toastr.option = Object.assign({}, toastError)
+                toastr["error"]("Usuário já cadastrado")
                 return
             }
         }
@@ -112,13 +119,18 @@ let cadastro = () => {
 
 document.getElementById('cadastrar-btn').addEventListener('click', cadastro)
 document.getElementById('submit-btn').addEventListener('click', validar)
-document.getElementById('user-input').addEventListener('keypress', function (e) {
+
+let userName = document.getElementById('user-input')
+
+userName.addEventListener('keypress', (e) => {
     if (e.key == 'Enter') {
         validar()
     }
 })
 
-document.getElementById('user-password').addEventListener('keypress', function (e) {
+let userPass = document.getElementById('user-password')
+
+userPass.addEventListener('keypress', (e) => {
     if (e.key == 'Enter') {
         validar()
     }
