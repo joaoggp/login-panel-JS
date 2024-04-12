@@ -1,6 +1,6 @@
 body {
     font-family: Montserrat;
-    background-image: url(./assets/1276993.jpg);
+    background-image: url(1276993.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 220vh;
@@ -34,6 +34,7 @@ body {
     margin-bottom: 20px;
     font-size: 40px;
     transition: transform 1.2s, color 1.2s ease-in-out;
+    
 }
 
 h2:hover {
